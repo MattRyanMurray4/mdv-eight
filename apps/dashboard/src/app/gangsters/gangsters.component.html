@@ -1,1 +1,17 @@
-<p>gangsters works!</p>
+<div class="container">
+  <div class="col-50" layout="row" layout-align="center center">
+    <mafias-gangsters-list
+      [gangsters]="gangsters$ | async"
+      (selected)="selectGangster($event)"
+      (deleted)="deleteGangster($event)"
+    ></mafias-gangsters-list>
+  </div>
+  <div class="col-50" layout="row" layout-align="center center">
+    <mafias-gangster-details
+      [form]="form"
+      [gangster]="selectedGangster | async"
+      (saved)="saveGangster($event)"
+      (cancelled)="cancel()"
+    ></mafias-gangster-details>
+  </div>
+</div>

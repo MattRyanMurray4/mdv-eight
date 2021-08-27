@@ -1,1 +1,14 @@
-<p>toolbar works!</p>
+<mat-toolbar color="primary" class="toolbar-container">
+  <span>
+    <button mat-mini-fab (click)="toggleSidenav.emit()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span class="toolbar-title">
+      {{ title }}
+    </span>
+  </span>
+  <span class="spacer"></span>
+  <button class="login-button" mat-mini-fab routerLink="/login">
+    <mat-icon>person</mat-icon>
+  </button>
+</mat-toolbar>

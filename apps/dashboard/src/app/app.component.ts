@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Message } from '@mafias/api-interfaces';
 
 @Component({
   selector: 'mafias-root',
@@ -8,6 +6,9 @@ import { Message } from '@mafias/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
-  constructor(private http: HttpClient) {}
+  title = 'Mafia-Application';
+  links = [
+    { path: '/', icon: 'home', title: 'Login' },
+    { path: 'gangsters', icon: 'view_list', title: 'Gangster-List' },
+  ];
 }

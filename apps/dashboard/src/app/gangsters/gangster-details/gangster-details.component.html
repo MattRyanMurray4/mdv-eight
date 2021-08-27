@@ -1,1 +1,78 @@
-<p>gangster-details works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title *ngIf="currentGangster.id; else createNew">
+      <h1>Update {{ originalName }}</h1>
+    </mat-card-title>
+    <ng-template #createNew>
+      <h1>Submit a New Gangster</h1>
+    </ng-template>
+  </mat-card-header>
+  <form
+    [formGroup]="form"
+    #formDirective="ngForm"
+    (ngSubmit)="saveForm(formDirective)"
+  >
+    <mat-card-content>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Name</mat-label>
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Alias</mat-label>
+        <input
+          matInput
+          placeholder="Alias"
+          formControlName="alias"
+          type="text"
+          name="alias"
+        />
+        <mat-error *ngIf="form.get('alias')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>Mob-Role</mat-label>
+        <input
+          matInput
+          placeholder="Mob-Role"
+          formControlName="mafiaRole"
+          type="text"
+          name="mafiaRole"
+        />
+        <mat-error *ngIf="form.get('mafiaRole')">Required Field</mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width" appearance="outline" floatlabel>
+        <mat-label>People-Whacked</mat-label>
+        <input
+          matInput
+          placeholder="People-Whacked"
+          formControlName="peopleWhacked"
+          type="number"
+          name="peopleWhacked"
+        />
+        <mat-error *ngIf="form.get('peopleWhacked')">Required Field</mat-error>
+      </mat-form-field>
+      <section>
+        <mat-checkbox formControlName="badTemper" placeholder="Bad Temper"
+          >Bad Temper</mat-checkbox
+        >
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        type="submit"
+        mat-button
+        [disabled]="form.invalid"
+        class="submit-button"
+      >
+        {{ currentGangster.id ? 'Submit' : 'Submit' }}
+      </button>
+      <button type="button" mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
