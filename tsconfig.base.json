@@ -15,7 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@mafias/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@mafias/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@mafias/core-data": ["libs/core-data/src/index.ts"],
+      "@mafias/core-state": ["libs/core-state/src/index.ts"],
+      "@mafias/material": ["libs/material/src/index.ts"],
+      "@mafias/theme": ["libs/theme/src/index.ts"],
+      "@mafias/ui-library": ["libs/ui-library/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
